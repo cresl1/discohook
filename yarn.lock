@@ -2853,6 +2853,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/ungap__structured-clone@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "@types/ungap__structured-clone@npm:1.2.0"
+  checksum: 10c0/52f341ded16708603e5631769b26acf0e9ed7c556ce81abb4e55962110b30442576c631c8f7e298b561b8ff77c7823f0edc9f5e313e1c5e1441825a590e5b0f3
+  languageName: node
+  linkType: hard
+
 "@types/unist@npm:^2, @types/unist@npm:^2.0.0":
   version: 2.0.10
   resolution: "@types/unist@npm:2.0.10"
@@ -2882,6 +2889,13 @@ __metadata:
   dependencies:
     "@types/yargs-parser": "npm:*"
   checksum: 10c0/2095e8aad8a4e66b86147415364266b8d607a3b95b4239623423efd7e29df93ba81bb862784a6e08664f645cc1981b25fd598f532019174cd3e5e1e689e1cccf
+  languageName: node
+  linkType: hard
+
+"@ungap/structured-clone@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "@ungap/structured-clone@npm:1.2.1"
+  checksum: 10c0/127afbcc75ff1532f7b1eb85ee992f9faa70e8d5bb2558da05355d423b966fc279d0a485bf19da2883280e7c299ae4170809a72e78eab086da71c6bcdda5d1e2
   languageName: node
   linkType: hard
 
@@ -4085,6 +4099,8 @@ cron-parser@discohook/cron-parser:
     "@types/react-modal": "npm:^3.16.3"
     "@types/showdown": "npm:^2.0.6"
     "@types/ua-parser-js": "npm:^0.7.39"
+    "@types/ungap__structured-clone": "npm:^1.2.0"
+    "@ungap/structured-clone": "npm:^1.2.1"
     chrono-node: "npm:^2.7.5"
     cron-parser: discohook/cron-parser
     discord-api-types: "npm:^0.37.92"
@@ -9207,7 +9223,7 @@ cron-parser@discohook/cron-parser:
 
 "store@file:../store::locator=discohook-bot%40workspace%3Apackages%2Fbot":
   version: 0.0.0
-  resolution: "store@file:../store#../store::hash=5fee36&locator=discohook-bot%40workspace%3Apackages%2Fbot"
+  resolution: "store@file:../store#../store::hash=401025&locator=discohook-bot%40workspace%3Apackages%2Fbot"
   dependencies:
     discord-api-types: "npm:^0.37.92"
     discord-snowflake: "npm:^2.0.0"
@@ -9217,7 +9233,7 @@ cron-parser@discohook/cron-parser:
     tif-snowflake: discohook/snowflake
     zod: "npm:^3.23.8"
     zodix: "npm:^0.4.4"
-  checksum: 10c0/e0dd8112f65eae0e89e18f8d18771a0eedcc8a7d4db501743ac20b22c3a8c5a86f694ebb14874f122b447a699cfa1de9676418ad451b5c074717fabebd07f844
+  checksum: 10c0/dd0a2c559242a43c22df59304e15b4a46baa355cfa1e070589372505336844a1abb3bf9e6425afb8d70f9045da92543af2dc4b3d2b8253d15d2c49a3c87da974
   languageName: node
   linkType: hard
 

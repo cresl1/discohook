@@ -6,6 +6,7 @@ import {
 } from "discord-api-types/v10";
 import moment, { Moment } from "moment";
 import { Trans } from "react-i18next";
+import { twJoin } from "tailwind-merge";
 import { SetImageModalData } from "~/modals/ImageModal";
 import { DraftFile } from "~/routes/_index";
 import { CacheManager } from "~/util/cache/CacheManager";
@@ -24,13 +25,32 @@ const getI18nTimestampFooterKey = (date: Moment) => {
   return "other";
 };
 
+// Supported extensions for the `attachment` URI according to:
+// https://discord.dev/reference#editing-message-attachments-using-attachments-within-embeds
+export const ATTACHMENT_URI_EXTENSIONS = [
+  ".jpg",
+  ".jpeg",
+  ".png",
+  ".webp",
+  ".gif",
+] as const;
+
+export const transformFileName = (filename: string) =>
+  filename.replace(/ /g, "_");
+
 export const resolveAttachmentUri = (
   uri: string,
   files?: DraftFile[] | undefined,
 ) => {
   if (uri.startsWith("attachment://")) {
     const filename = uri.replace(/^attachment:\/\//, "");
-    return files?.find((file) => file.file.name === filename);
+    return files?.find(
+      (file) =>
+        transformFileName(file.file.name) === filename &&
+        ATTACHMENT_URI_EXTENSIONS.find((ext) =>
+          file.file.name.toLowerCase().endsWith(ext),
+        ) !== undefined,
+    );
   }
 };
 
@@ -82,12 +102,15 @@ export const Embed: React.FC<{
   return (
     <div>
       <div
-        className="rounded bg-gray-100 border-l-4 border-l-gray-300 dark:bg-background-secondary-dark dark:border-l-[#1E1F22] dark:text-gray-100 inline-grid max-w-[520px] pt-2 pr-4 pb-4 pl-3"
-        style={
-          typeof embed.color === "number"
+        className={twJoin(
+          "rounded bg-gray-100 border-l-4 border-l-gray-300 dark:bg-background-secondary-dark dark:border-l-[#1E1F22] dark:text-gray-100 inline-grid pt-2 pr-4 pb-4 pl-3",
+        )}
+        style={{
+          ...(typeof embed.color === "number"
             ? { borderLeftColor: decimalToHex(embed.color) }
-            : undefined
-        }
+            : undefined),
+          maxWidth: 520,
+        }}
       >
         {embed.provider?.name && (
           <div className="min-w-0 mt-2 font-normal text-xs whitespace-break-spaces break-words text-primary-230">

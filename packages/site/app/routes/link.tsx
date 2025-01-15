@@ -370,7 +370,7 @@ export default () => {
               />
             </div>
             <Button
-              className="ml-2 mt-5"
+              className="ltr:ml-2 rtl:mr-2 mt-5"
               disabled={!isPremium}
               onClick={async () => {
                 // Try to save an API request if someone removes the disabled prop
@@ -398,7 +398,7 @@ export default () => {
             </Button>
           </div>
           <p className="mb-2 italic text-sm text-muted dark:text-muted-dark">
-            {isPremium && (
+            {isPremium && !!backupInfo && (
               <Trans
                 t={t}
                 i18nKey="linkEmbedCacheNote"
@@ -407,7 +407,7 @@ export default () => {
                     type="button"
                     className={twMerge(
                       linkClassName,
-                      "italic contents ltr:text-left rtl:text-right",
+                      "italic contents text-start",
                     )}
                     onClick={() => {
                       if (!backupInfo) return;
